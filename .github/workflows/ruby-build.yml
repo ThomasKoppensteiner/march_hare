@@ -19,15 +19,15 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      redis:
-        image: rabbitmq
+      rabbitmq:
+        image: rabbitmq:3-management
         ports:
           - 5672:5672
           - 15672:15672
 
     strategy:
       matrix:
-        ruby-version: ['2.7', '3.0', 'head', 'jruby-head', 'truffleruby-head']
+        ruby-version: ['jruby-9.2.14.0', 'jruby-head']
 
     steps:
     - uses: actions/checkout@v2
